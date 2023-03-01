@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ScoreBatApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_table">Table</string>
+    <string name="title_highlight">Highlight</string>
+    <string name="title_details">Details</string>
+    <string name="title_contacts">Contacts</string>
+
+</resources>
