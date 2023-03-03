@@ -4,7 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_table">Table</string>
     <string name="title_highlight">Highlight</string>
-    <string name="title_details">Details</string>
+    <string name="title_login">Login</string>
     <string name="title_contacts">Contacts</string>
+    <string name="title_name">Name</string>
+    <string name="title_signup">Signup</string>
 
 </resources>

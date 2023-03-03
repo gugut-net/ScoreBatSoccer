@@ -10,7 +10,9 @@ import com.example.scorebatapp.data.repository.Repository
 import com.example.scorebatapp.data.standing.Standings
 import com.example.scorebatapp.util.ResponseType
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import java.util.concurrent.Flow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,24 +22,22 @@ class LeagueViewModel @Inject constructor(
 
     var tableObject: MatchesModel? = null
 
-    private val _result = MutableLiveData<ResponseType<List<MatchesResponseModel>>>()
-    val result: LiveData<ResponseType<List<MatchesResponseModel>>> = _result
+    private val _result = MutableLiveData<ResponseType<List<MatchesModel>>>()
+    val result: LiveData<ResponseType<List<MatchesModel>>> = _result
 
-
-    fun getMatchesList() {
+     fun getMatchesList() {
         viewModelScope.launch {
             _result.postValue(ResponseType.Loading)
             val response = repository.getMatchesList()
             if (response.isSuccessful) {
                 response.body()?.let {
-                    it.season?.let { faisel ->
+                    it.matches?.let { faisel ->
                         _result.postValue(ResponseType.Success(faisel))
                     }
                 }
-            }else {
+            } else {
                 _result.postValue(ResponseType.Error(response.message()))
             }
         }
     }
-
 }

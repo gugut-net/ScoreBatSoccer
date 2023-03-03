@@ -1,8 +1,10 @@
 package com.example.scorebatapp.data.repository
 
+import com.example.scorebatapp.data.matches.MatchesModel
 import com.example.scorebatapp.data.matches.MatchesResponseModel
 import com.example.scorebatapp.data.matchesremote.ApiMatchesDetails
 import com.example.scorebatapp.data.matchesremote.ApiMatchesReference
+import com.example.scorebatapp.data.matchesremote.ApiMatchesReference.AUTH_TOKEN
 import com.example.scorebatapp.data.model.LeagueItemModel
 import com.example.scorebatapp.data.remote.ApiDetails
 import com.example.scorebatapp.data.standing.Standings
@@ -24,11 +26,10 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getCompetitionList(): Response<LeagueItemModel> {
         return apiDetails.getCompetitionList("NjAyNDdfMTY3NzE3NTI4NV8wZDQ4Y2RjMTgzNWUxM2MwYTc5ZDdiMGUwYzM5ZWExNTM4YjdkNjdi")
-
     }
 
     override suspend fun getMatchesList(): Response<MatchesResponseModel> {
-        return matchesDetails.getMatchesList("1f36a33918914bdf81cae38abb7ee32f")
+        return matchesDetails.getMatchesList(AUTH_TOKEN)
     }
 
     override suspend fun getStandingList(): Flow<ResponseType<List<Standings>>> = flow  {
@@ -44,7 +45,7 @@ class RepositoryImpl @Inject constructor(
                 emit(ResponseType.Error(response.message()))
             }
         }catch (e: java.lang.Exception) {
-            emit(ResponseType.Error(e.localizedMessage as String))
+            emit(ResponseType.Error(e.localizedMessage))
         }
     }
 

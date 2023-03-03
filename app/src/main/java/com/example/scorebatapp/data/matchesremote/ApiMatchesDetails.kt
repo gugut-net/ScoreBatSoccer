@@ -1,5 +1,6 @@
 package com.example.scorebatapp.data.matchesremote
 
+import com.example.scorebatapp.data.matches.MatchesModel
 import com.example.scorebatapp.data.matches.MatchesResponseModel
 import com.example.scorebatapp.data.matchesremote.ApiMatchesReference.MATCHES_API_TOKEN
 import retrofit2.Response

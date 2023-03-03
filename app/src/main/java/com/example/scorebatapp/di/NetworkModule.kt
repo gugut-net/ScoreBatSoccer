@@ -6,6 +6,7 @@ import com.example.scorebatapp.data.remote.ApiDetails
 import com.example.scorebatapp.data.remote.ApiReference
 import com.example.scorebatapp.data.repository.Repository
 import com.example.scorebatapp.data.repository.RepositoryImpl
+import com.example.scorebatapp.data.repository.RequestInterceptor
 import com.example.scorebatapp.data.standingremote.ApiStandingDetails
 import com.google.gson.Gson
 import dagger.Module
@@ -34,10 +35,12 @@ class NetworkModule {
 
     @Provides
     fun provideOkHttpClient(
-        loggingInterceptor: HttpLoggingInterceptor
+        loggingInterceptor: HttpLoggingInterceptor,
+        requestInterceptor: RequestInterceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(requestInterceptor)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
@@ -67,4 +70,7 @@ class NetworkModule {
         apiMatchesNetworkModule: ApiMatchesDetails
     ): Repository =
         RepositoryImpl(apiDetails, apiStandingDetails, apiMatchesNetworkModule)
+
+    @Provides
+    fun providesRequestInterceptor() : RequestInterceptor = RequestInterceptor()
 }

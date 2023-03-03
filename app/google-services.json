@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1009216663852",
+    "project_id": "scorebatapp",
+    "storage_bucket": "scorebatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009216663852:android:12c0fd3a7d3171bb8c3c89",
+        "android_client_info": {
+          "package_name": "com.example.scorebatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009216663852-vmqj5tm2l29fvsijljffd5ba8v2gsgm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiaMtcFaGurQMZ1WA9a2l8M78cTH0HMgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009216663852-vmqj5tm2l29fvsijljffd5ba8v2gsgm9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

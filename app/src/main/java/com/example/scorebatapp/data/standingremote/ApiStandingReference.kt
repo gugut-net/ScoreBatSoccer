@@ -10,4 +10,5 @@ object ApiStandingReference {
     const val END_POINT = "/leagues/eng.1/standings"
     const val SEASON = "season"
 
+
 }

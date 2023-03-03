@@ -24,18 +24,19 @@ class HomeAdapter(
     inner class ViewHolder(private val view: ItemHomeBinding) :
         RecyclerView.ViewHolder(view.root) {
         fun setup(responseItemModel: ResponseItemModel) {
+            view.tvTeam.text = responseItemModel.title
+            view.tvCreated.text = responseItemModel.competition
+
+            itemView.setOnClickListener {
+                clickListener.invoke(responseItemModel)
+            }
+
             with(itemView) {
                 Glide.with(context)
                     .load(responseItemModel.thumbnail)
                     .placeholder(R.drawable.animate_loading)
                     .centerCrop()
                     .into(view.ivTeam)
-            }
-            view.tvTeam.text = responseItemModel.title
-            view.tvCreated.text = responseItemModel.competition
-
-            itemView.setOnClickListener {
-                clickListener.invoke(responseItemModel)
             }
         }
     }
@@ -54,7 +55,6 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int = leagueList.size
-
 
 }
 

@@ -14,5 +14,5 @@ interface Repository {
 
     suspend fun getStandingList(): Flow<ResponseType<List<Standings>>>
 
-    suspend fun getMatchesList(): Response<MatchesModel>
+    suspend fun getMatchesList(): Response<MatchesResponseModel>
 }

@@ -3,12 +3,17 @@ package com.example.scorebatapp.di
 import com.example.scorebatapp.data.matchesremote.ApiMatchesDetails
 import com.example.scorebatapp.data.matchesremote.ApiMatchesReference
 import com.google.gson.Gson
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 
+@Module
+@InstallIn(SingletonComponent::class)
 class ApiMatchesNetworkModule {
 
     @Provides

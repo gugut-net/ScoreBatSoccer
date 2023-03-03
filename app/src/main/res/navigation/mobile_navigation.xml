@@ -3,7 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:visibility="visible"
+    app:startDestination="@id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.example.scorebatapp.ui.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/navigation_login_to_navigation_signup"
+            app:destination="@id/navigation_signup" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_signup"
+        android:name="com.example.scorebatapp.ui.login.SignupFragment"
+        android:label="@string/title_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_navigation_signup_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_signup_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_home"
@@ -16,14 +43,21 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_highlits"
+        android:name="com.example.scorebatapp.ui.video.VideoFragment"
+        android:label="@string/title_highlight"
+        tools:layout="@layout/fragment_table" />
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.scorebatapp.ui.league.LeagueGameFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_league" >
-        <action
-            android:id="@+id/action_navigation_dashboard_to_navigation_details"
-            app:destination="@id/navigation_details" />
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_dashboard_to_navigation_details"-->
+<!--            app:destination="@id/navigation_details" />-->
     </fragment>
+
 
     <fragment
         android:id="@+id/navigation_table"
@@ -31,17 +65,6 @@
         android:label="@string/title_table"
         tools:layout="@layout/fragment_table" />
 
-    <fragment
-        android:id="@+id/navigation_highlits"
-        android:name="com.example.scorebatapp.ui.video.VideoFragment"
-        android:label="@string/title_highlight"
-        tools:layout="@layout/fragment_table" />
-
-    <fragment
-        android:id="@+id/navigation_details"
-        android:name="com.example.scorebatapp.ui.details.DetailsFragment"
-        android:label="@string/title_details"
-        tools:layout="@layout/fragment_details" />
 
     <fragment
         android:id="@+id/nav_contacts"

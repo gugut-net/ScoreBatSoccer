@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.scorebatapp.data.matches.MatchesResponseModel
+import com.example.scorebatapp.data.matches.MatchesModel
 import com.example.scorebatapp.databinding.FragmentLeagueBinding
 import com.example.scorebatapp.util.ResponseType
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,10 +59,11 @@ class LeagueGameFragment : Fragment() {
             }
         }
         sharedViewModel.getMatchesList()
+
         return binding.root
     }
 
-    private fun initViews(data: List<MatchesResponseModel>) {
+    private fun initViews(data: List<MatchesModel>) {
         data?.let {
             mAdapter.updateAdapterList(it)
         }
