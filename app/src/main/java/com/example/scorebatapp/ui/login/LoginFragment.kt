@@ -1,22 +1,32 @@
 package com.example.scorebatapp.ui.login
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.scorebatapp.MainActivity
 import com.example.scorebatapp.R
 import com.example.scorebatapp.databinding.FragmentLoginBinding
+import com.example.scorebatapp.ui.home.HomeFragment
 import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,12 +36,20 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var transaction: FragmentTransaction
+    private lateinit var tv_signin_with_google: GoogleSignInOptions
+
+
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+
+
 
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater,container,false)
@@ -80,44 +98,9 @@ class LoginFragment : Fragment() {
     }
 
 
-    private fun setupGoogleSignIn() {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-
-        googleApiClient = GoogleApiClient.Builder(requireContext())
-            .enableAutoManage(requireActivity()) { /* Handle error */ }
-            .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-            .build()
-
-        // Set up the Google Sign-In button
-        val signInButton = requireView().findViewById<SignInButton>(R.id.tv_signin_google)
-        signInButton.setSize(SignInButton.SIZE_WIDE)
-        signInButton.setOnClickListener { signIn() }
-    }
-
-    private fun signIn() {
-        val signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-
-    companion object {
-        private const val RC_SIGN_IN = 9001
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == RC_SIGN_IN) {
-            val result = data?.let { Auth.GoogleSignInApi.getSignInResultFromIntent(it) }
-            if (result!!.isSuccess) {
-                // Handle successful Google Sign-In
-                val account = result!!.signInAccount
-                val idToken = account?.idToken
-                // ...
-            } else {
-                // Handle failed Google Sign-In
-            }
-        }
-    }
 }
+
+    /**
+     * Google Client authentication
+     */
+

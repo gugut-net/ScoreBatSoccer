@@ -132,17 +132,20 @@
 
     <TextView
         android:id="@+id/tv_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_width="204dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/card_gradient"
         android:clickable="true"
+        android:gravity="center"
         android:text="Already have an account? SignIn."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mb_signup"
-        app:layout_constraintVertical_bias="0.079"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.088" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
