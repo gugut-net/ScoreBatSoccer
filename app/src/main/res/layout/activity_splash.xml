@@ -7,11 +7,18 @@
     tools:context=".SplashActivity">
 
     <ImageView
+        android:id="@+id/splash_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/spalsh_yellow"
+        android:background="@drawable/legend_never_die"
         android:scaleType="fitXY">
 
     </ImageView>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/splash_image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@anim/anim" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

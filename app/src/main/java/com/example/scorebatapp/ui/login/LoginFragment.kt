@@ -27,10 +27,12 @@ class LoginFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var transaction: FragmentTransaction
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater,container,false)
         firebaseAuth = FirebaseAuth.getInstance()
@@ -73,6 +75,7 @@ class LoginFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
+
         return binding.root
     }
 

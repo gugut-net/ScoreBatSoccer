@@ -7,8 +7,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide()
+
         setContentView(R.layout.activity_login)
         supportFragmentManager.beginTransaction()
             .replace(R.id.loginContainer, LoginFragment())
