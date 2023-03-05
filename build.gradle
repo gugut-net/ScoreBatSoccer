@@ -1,12 +1,14 @@
 buildscript {
-
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+    }
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.43.2"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2"
         classpath 'com.google.gms:google-services:4.3.10'
-// to pass value from one fragment to another
-
-
+    // to pass value from one fragment to another
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {

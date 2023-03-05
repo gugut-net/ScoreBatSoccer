@@ -133,11 +133,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
 
-
     // Firebase
     implementation 'com.google.firebase:firebase-auth:21.1.0'
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
-
     implementation 'com.google.firebase:firebase-analytics-ktx:20.0.2'
 
     kapt 'com.github.bumptech.glide:compiler:4.14.2'
@@ -146,8 +144,24 @@ dependencies {
     implementation 'io.coil-kt:coil:0.12.0'
     implementation 'io.coil-kt:coil-svg:0.12.0'
 
-    // Facebook Login
+
+    // Facebook Core only (Analytics)
+    implementation 'com.facebook.android:facebook-core:latest.release'
+
+    // Facebook Login only
     implementation 'com.facebook.android:facebook-login:latest.release'
+
+    // Facebook Share only
+    implementation 'com.facebook.android:facebook-share:latest.release'
+
+    // Facebook Messenger only
+    implementation 'com.facebook.android:facebook-messenger:latest.release'
+
+    // Facebook App Links only
+    implementation 'com.facebook.android:facebook-applinks:latest.release'
+
+    // Facebook Android SDK (everything)
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
 
 

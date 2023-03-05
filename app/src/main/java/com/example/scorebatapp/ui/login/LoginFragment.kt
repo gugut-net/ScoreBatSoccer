@@ -1,6 +1,5 @@
 package com.example.scorebatapp.ui.login
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,34 +7,22 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.scorebatapp.MainActivity
 import com.example.scorebatapp.R
 import com.example.scorebatapp.databinding.FragmentLoginBinding
-import com.example.scorebatapp.ui.home.HomeFragment
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,7 +36,6 @@ class LoginFragment : Fragment() {
      * Google Client authentication
      */
     private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 9001
 
 
@@ -67,18 +53,6 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
-
-//        /**
-//         * Google Client authentication
-//         */
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken(getString(R.string.default_web_client_id))
-//            .requestEmail()
-//            .build()
-//
         /**
          * Initialize Firebase Auth
          */
@@ -88,13 +62,6 @@ class LoginFragment : Fragment() {
         FacebookSdk.setApplicationId(getString(R.string.facebook_app_id))
         FacebookSdk.sdkInitialize(requireContext())
         callbackManager = CallbackManager.Factory.create()
-//
-//
-//        /**
-//         * Configure Google sign-in client
-//         */
-//        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-
 
         /**
          * Inflate the layout for this fragment
@@ -151,14 +118,6 @@ class LoginFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-
-//        // Check if user is already signed in
-//        val currentUser = auth.currentUser
-//        if (currentUser != null) {
-//            // User is already signed in, go to HomeFragment
-//            findNavController().navigate(R.id.action_navigation_signin_to_navigation_home)
-//        }
-
         return binding.root
     }
 
@@ -264,7 +223,7 @@ class LoginFragment : Fragment() {
                 updateUI(null)
             }
         } else {
-// Pass the activity result back to the Facebook SDK
+        // Pass the activity result back to the Facebook SDK
             callbackManager.onActivityResult(requestCode, resultCode, data)
         }
     }
@@ -298,65 +257,3 @@ class LoginFragment : Fragment() {
         }
     }
 }
-
-//
-//    /**
-//     * Google Client authentication
-//     */
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        // Configure sign-in button
-//        val signInButton = view.findViewById<TextView>(R.id.tv_signin_with_google)
-//        signInButton.setOnClickListener {
-//            signInWithGoogle()
-//        }
-//    }
-//
-//    private fun signInWithGoogle() {
-//        val signInIntent = googleSignInClient.signInIntent
-//        startActivityForResult(signInIntent, RC_SIGN_IN)
-//    }
-//
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-//        if (requestCode == RC_SIGN_IN) {
-//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            try {
-//                // Google Sign In was successful, authenticate with Firebase
-//                val account = task.getResult(ApiException::class.java)!!
-//                firebaseAuthWithGoogle(account.idToken!!)
-//            } catch (e: ApiException) {
-//                // Google Sign In failed, update UI appropriately
-//                // ...
-//            }
-//        }
-//    }
-//
-//    private fun firebaseAuthWithGoogle(idToken: String) {
-//        val credential = GoogleAuthProvider.getCredential(idToken, null)
-//        auth.signInWithCredential(credential)
-//            .addOnCompleteListener(requireActivity()) {
-//                if (it.isSuccessful) {
-//                    val intent = Intent(requireContext(), HomeFragment::class.java)
-//                    startActivity(intent)
-//
-////                    val intent = Intent(activity, HomeFragment::class.java)
-////                    startActivity(intent)
-//
-//                    // Sign in success, update UI with the signed-in user's information
-//                    val user = auth.currentUser
-//
-//                    //findNavController().navigate(R.id.action_navigation_signin_to_navigation_home)
-//                    // ...
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    // ...
-//                }
-//            }
-//    }
-
-
-
