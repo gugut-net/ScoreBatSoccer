@@ -1,5 +1,6 @@
 package com.example.scorebatapp
 
+import android.content.Intent
 import com.example.scorebatapp.ui.login.LoginFragment
 import android.os.Bundle
 import android.view.View
@@ -10,19 +11,23 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.scorebatapp.databinding.ActivityMainBinding
+import com.example.scorebatapp.ui.login.LoginActivity
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         supportActionBar?.hide()
 
+        firebaseAuth = FirebaseAuth.getInstance()
         /**
          * Firebase Initialized
          */
@@ -51,6 +56,15 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        /**
+         * Logout event handled
+         */
+        binding.btLogout.setOnClickListener {
+            firebaseAuth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

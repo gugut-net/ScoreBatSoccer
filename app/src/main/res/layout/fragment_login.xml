@@ -139,16 +139,32 @@
         android:id="@+id/tv_signin_with_google"
         android:layout_width="134dp"
         android:layout_height="42dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/card_gradient"
         android:clickable="true"
         android:gravity="center"
-        android:background="@drawable/card_gradient"
         android:text="SignIn with Google."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mb_login"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/tv_signin_with_facebook"
+        android:layout_width="134dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/card_gradient"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="SignIn with Facebook."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signin_with_google"
         app:layout_constraintVertical_bias="0.018" />
 
 
