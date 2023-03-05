@@ -13,16 +13,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/black"
+        android:background="@color/card_gradient"
         android:gravity="right">
 
-        <Button
+        <TextView
             android:id="@+id/bt_logout"
             android:layout_width="38dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:background="@drawable/baseline_logout_24"
-            android:backgroundTint="@color/black"/>
+            android:textColor="@color/card_gradient"
+            android:clickable="true"/>
 
     </LinearLayout>
 
