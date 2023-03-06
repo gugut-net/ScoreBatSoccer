@@ -67,11 +67,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-    override fun onBackPressed() {
-        // Leave this method empty to disable the back button functionality.
-    }
-
-
-
 }

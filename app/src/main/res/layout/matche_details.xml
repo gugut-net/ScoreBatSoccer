@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+
+
+        <ImageView
+            android:id="@+id/iv_home_team_logo"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_home_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_home_team_logo"
+            app:layout_constraintEnd_toEndOf="@+id/iv_home_team_logo"
+            app:layout_constraintTop_toBottomOf="@id/iv_home_team_logo"
+            tools:text="Arsenal" />
+
+        <Space
+            />
+
+        <TextView
+            android:id="@+id/tv_goals_scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_home_team"
+            app:layout_constraintEnd_toEndOf="@+id/tv_home_team"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_team"
+            tools:text="Player"/>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_score_home"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="33dp"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_home_team_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tv_vs"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:text=" vs. "
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_date"
+            app:layout_constraintEnd_toStartOf="@+id/tv_score_away"
+            app:layout_constraintStart_toEndOf="@+id/tv_score_home"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_score_away"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="33dp"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_away_team_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tv_away_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_away_team_logo"
+            app:layout_constraintTop_toBottomOf="@+id/iv_away_team_logo"
+            app:layout_constraintStart_toStartOf="@+id/iv_away_team_logo"
+            tools:text="Liverpool" />
+
+        <ImageView
+            android:id="@+id/iv_away_team_logo"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_home_team_logo"
+            tools:src="@drawable/ic_launcher_background" />
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:drawableLeftCompat="@drawable/ic_baseline_keyboard_double_arrow_left_24"
+            app:drawableRightCompat="@drawable/ic_baseline_keyboard_double_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/iv_home_team_logo"
+            app:layout_constraintRight_toLeftOf="@id/iv_away_team_logo"
+            tools:text="Date" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="3dp"
+            tools:text="00:00"
+            app:layout_constraintBottom_toTopOf="@+id/tv_vs"
+            app:layout_constraintEnd_toStartOf="@+id/tv_score_away"
+            app:layout_constraintStart_toEndOf="@+id/tv_score_home"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
