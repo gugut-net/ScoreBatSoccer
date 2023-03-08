@@ -61,6 +61,9 @@ android {
 
 dependencies {
 
+    implementation("com.facebook.android:facebook-android-sdk:14.1.1") {
+        because("Social Media Login integration")
+    }
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -163,6 +166,7 @@ dependencies {
     // Facebook Android SDK (everything)
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
 
 }

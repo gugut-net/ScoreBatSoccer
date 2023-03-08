@@ -1,9 +1,7 @@
 package com.example.scorebatapp
 
 import android.content.Intent
-import com.example.scorebatapp.ui.login.LoginFragment
 import android.os.Bundle
-import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
