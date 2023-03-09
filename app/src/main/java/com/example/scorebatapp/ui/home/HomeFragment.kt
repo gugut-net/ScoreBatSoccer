@@ -63,25 +63,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         sharedViewModel.getCompetitionList()
         return binding.root
     }
