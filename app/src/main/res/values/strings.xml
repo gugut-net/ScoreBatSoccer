@@ -8,12 +8,11 @@
     <string name="title_contacts">Contacts</string>
     <string name="title_name">Name</string>
     <string name="title_signup">Signup</string>
-    <string name="loading_video">Loading...</string>
+    <string name="loading_video">Loading…</string>
 
     // Facebook login
     <string name="facebook_app_id">751353923224717</string>
     <string name="facebook_client_token">1c28097b2db6543d7887435bf3e8dd26</string>
-
 
 
 </resources>

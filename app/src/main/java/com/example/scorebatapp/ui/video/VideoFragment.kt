@@ -1,5 +1,6 @@
 package com.example.scorebatapp.ui.video
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,6 +22,8 @@ class VideoFragment : Fragment() {
 
 
     private val sharedViewModel: HomeViewModel by activityViewModels()
+
+    @SuppressLint("SetJavaScriptEnabled")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +33,12 @@ class VideoFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentVideoBinding.inflate(inflater,container,false)
 
-        var url = sharedViewModel.homeObject?.matchviewUrl
+        /**
+         * WebViewer handled
+         * initialize url from the api response then assign it to sharedViewModel
+         * then call the Url.
+         */
+        val url = sharedViewModel.homeObject?.matchviewUrl
 
         binding.wbVideos.webViewClient = WebViewClient()
         binding.wbVideos.apply {

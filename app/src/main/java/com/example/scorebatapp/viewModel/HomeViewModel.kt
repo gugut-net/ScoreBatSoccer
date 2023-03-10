@@ -37,4 +37,12 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    init {
+        fetchData()
+    }
+
+    private fun fetchData() {
+        // Fetch the data and update _leagueItemList
+    }
+
 }

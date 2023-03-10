@@ -42,6 +42,8 @@ class HomeAdapter(
     }
 
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         ItemHomeBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -55,6 +57,9 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int = leagueList.size
+
+
+
 
 }
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewFragment
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.scorebatapp.MainActivity
 import com.example.scorebatapp.R
 import com.example.scorebatapp.data.model.ResponseItemModel
+import com.example.scorebatapp.databinding.ActivityMainBinding
 import com.example.scorebatapp.databinding.FragmentHomeBinding
 import com.example.scorebatapp.util.ResponseType
 import com.example.scorebatapp.viewModel.HomeViewModel
@@ -22,9 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     private val sharedViewModel: HomeViewModel by activityViewModels()
@@ -42,7 +42,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -63,6 +62,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+
         sharedViewModel.getCompetitionList()
         return binding.root
     }
