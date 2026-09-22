@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.table.TableFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ly_standing"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:id="@+id/tv_pts"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="Pts"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_goodgoals"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_goodgoals" />
+
+        <TextView
+            android:id="@+id/tv_goodgoals"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="GD"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_loses"
+            app:layout_constraintEnd_toStartOf="@+id/tv_pts"
+            app:layout_constraintStart_toEndOf="@+id/tv_loses" />
+
+        <TextView
+            android:id="@+id/tv_loses"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="L"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_draws"
+            app:layout_constraintEnd_toStartOf="@+id/tv_goodgoals"
+            app:layout_constraintStart_toEndOf="@+id/tv_draws" />
+
+
+        <TextView
+            android:id="@+id/tv_draws"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="D"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_wins"
+            app:layout_constraintEnd_toStartOf="@+id/tv_loses"
+            app:layout_constraintStart_toEndOf="@+id/tv_wins" />
+
+
+        <TextView
+            android:id="@+id/tv_wins"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="W"
+            app:layout_constraintEnd_toStartOf="@+id/tv_draws"
+            app:layout_constraintStart_toEndOf="@+id/tv_played"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_played"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="PL"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_wins"
+            app:layout_constraintEnd_toStartOf="@+id/tv_wins"
+            app:layout_constraintStart_toEndOf="@+id/iv_christ" />
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="11dp"
+            android:gravity="center"
+            android:text="Pos"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_christ"
+            app:layout_constraintEnd_toStartOf="@+id/iv_christ"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_christ" />
+
+
+        <TextView
+            android:id="@+id/iv_christ"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="18dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_played"
+            app:layout_constraintEnd_toStartOf="@+id/tv_played"
+            app:layout_constraintStart_toEndOf="@+id/tv_position"
+            app:layout_constraintTop_toTopOf="@+id/tv_played"
+            android:text="Team"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_standings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="15" />
+    </LinearLayout>
+
+
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:visibility="visible"
+    app:startDestination="@id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.example.scorebatapp.ui.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/navigation_login_to_navigation_signup"
+            app:destination="@id/navigation_signup" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_signup"
+        android:name="com.example.scorebatapp.ui.login.SignupFragment"
+        android:label="@string/title_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_navigation_signup_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_signin_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.scorebatapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_highlits"
+            app:destination="@id/navigation_highlits" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_highlits"
+        android:name="com.example.scorebatapp.ui.video.VideoFragment"
+        android:label="@string/title_highlight"
+        tools:layout="@layout/fragment_table" >
+        <action
+            android:id="@+id/action_navigation_highlits_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.scorebatapp.ui.league.LeagueGameFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_league" >
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_dashboard_to_navigation_details"-->
+<!--            app:destination="@id/navigation_details" />-->
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_table"
+        android:name="com.example.scorebatapp.ui.table.TableFragment"
+        android:label="@string/title_table"
+        tools:layout="@layout/fragment_table" />
+
+
+    <fragment
+        android:id="@+id/nav_contacts"
+        android:name="com.example.scorebatapp.ui.contacts.ContactsFragment"
+        android:label="@string/title_contacts"
+        tools:layout="@layout/fragment_contacts" />
+
+</navigation>

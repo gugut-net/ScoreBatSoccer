@@ -1,0 +1,27 @@
+.gradle/
+build/
+app/build/
+local.properties
+**/credentials.properties
+!**/credentials.properties.example
+
+# Android Studio and IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Android build and tooling output
+captures/
+externalNativeBuild/
+.cxx/
+cmake-build-*/
+
+# Local signing and environment files
+*.jks
+*.keystore
+*.hprof
